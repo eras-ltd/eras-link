@@ -7,7 +7,7 @@
 
 Just a simple button that acts like a hyper link with an icon
 
-@demo demo/index.html
+@demo demo/eras-link_demo.html
 -->
 <dom-module id="eras-link">
   <template>
@@ -26,15 +26,15 @@ Just a simple button that acts like a hyper link with an icon
         margin-left: 5px;
       }
     </style>
-    <a id="link" href="[[url]]">
+    <a id="link" href$="[[url]]">
       <paper-button>
         [[label]]
-        <template is="dom-if" if="{{icon.length > 0}}">
+        <template is="dom-if" if="{{icon}}">
           <iron-icon icon="[[icon]]"></iron-icon>
         </template>
       </paper-button>
     </a>
-    <template is="dom-if" if="{{tooltip.length > 0}}">
+    <template is="dom-if" if="{{tooltip}}">
       <paper-tooltip for="link" position="bottom" animation-delay="0">
         [[tooltip]]
       </paper-tooltip>
@@ -44,10 +44,15 @@ Just a simple button that acts like a hyper link with an icon
     Polymer({
       is: 'eras-link',
       properties: {        
+        /** url to link to */
         url: String,
+
+        /** label to show on the link */
         label: String,
+
         /** name of the iron-icons icon that will be displayed (eg icons:refresh). *Optional* */
         icon: String,
+        
         /** tooltip to be displayed on hover. *Optional* */
         tooltip: String
       }

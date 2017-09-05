@@ -1,30 +1,40 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+<html lang='en'>
 
-    <title>eras-link test</title>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes'>
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <script src="../../web-component-tester/browser.js"></script>
+  <title>eras-link test</title>
 
-    <link rel="import" href="../eras-link.html">
-  </head>
-  <body>
-    <test-fixture id="basic">
-      <template>
-        <eras-link></eras-link>
-      </template>
-    </test-fixture>
+  <script src='../../webcomponentsjs/webcomponents-lite.js'></script>
+  <script src='../../web-component-tester/browser.js'></script>
 
-    <script>
-      suite('eras-link', function() {
-        test('instantiating the element works', function() {
-          var element = fixture('basic');
-          assert.equal(element.is, 'eras-link');
-        });
+  <script src='../bower_components/iron-test-helpers/mock-interactions.js'></script>
+  <link rel='import' href='../eras-link.html'>
+</head>
+
+<body>
+  <test-fixture id='eras-link-fixture'>
+    <template>
+      <eras-link></eras-link>
+    </template>
+  </test-fixture>
+
+  <script>
+    suite('eras-link', function () {
+      var el;
+
+      setup(function () {
+        el = fixture('eras-link-fixture');
       });
-    </script>
-  </body>
+      
+      test('instantiation', function () {
+        assert.equal(el.is, 'eras-link');
+      });
+    });
+
+  </script>
+</body>
+
 </html>
